@@ -1,0 +1,8 @@
+frontend/node_modules
+frontend/dist
+.tmp
+frontend/.sass-cache
+frontend/app/bower_components
+.*.sw?
+PENDING
+frontend/app/config.js

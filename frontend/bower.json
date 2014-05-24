@@ -1,0 +1,36 @@
+{
+  "name": "frontdesk",
+  "version": "0.0.1",
+  "homepage": "https://github.com/uems/frontdesk",
+  "authors": [
+    "Felipe Mobus <fmobus@gmail.com>"
+  ],
+  "description": "Frontdesk Single Page Application",
+  "main": "app/index.js",
+  "license": "GPLv3",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "1.2.6",
+    "angular-ui-router": "~0.2.10",
+    "angular-resource": "~1.2.6",
+    "angular-gravatar": "~0.1.4",
+    "angular-ui-utils": "bower",
+    "animate.css": "~3.1.1",
+    "angular-animate": "1.2.6",
+    "underscore": "~1.6.0",
+    "angular-cookies": "~1.2.16",
+    "angular-moment": "~0.7.0",
+    "angular-http-auth": "~1.2.1"
+  },
+  "resolutions": {
+    "angular": "1.2.6"
+  }
+}

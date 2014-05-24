@@ -1,0 +1,63 @@
+$transition: 1s;
+
+$valid-bg: lightgreen;
+$pending-bg: lightyellow;
+
+$loading: url(/ajax-loader.gif);
+
+kbd {
+  padding: 0.3rem 0.5rem;
+  background: gray;
+  color: lightgray;
+  border-radius: 5px;
+  min-width: 1rem;
+  display: inline-block;
+}
+
+@mixin in-out($from, $to) {
+  &.ng-enter {
+    -webkit-animation: fadeIn#{$from}Big $transition;
+    animation:         fadeIn#{$from}Big $transition;
+  }
+  &.ng-leave {
+    -webkit-animation: fadeOut#{$to}Big $transition;
+    animation:         fadeOut#{$to}Big $transition;
+  }
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin border-top-right-radius($radius) {
+  -webkit-border-top-right-radius: $radius;
+  -moz-border-top-right-radius: $radius;
+  -ms-border-top-right-radius: $radius;
+  border-top-right-radius: $radius;
+}
+@mixin border-bottom-right-radius($radius) {
+  -webkit-border-bottom-right-radius: $radius;
+  -moz-border-bottom-right-radius: $radius;
+  -ms-border-bottom-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}
+
+@mixin border-top-left-radius($radius) {
+  -webkit-border-top-left-radius: $radius;
+  -moz-border-top-left-radius: $radius;
+  -ms-border-top-left-radius: $radius;
+  border-top-left-radius: $radius;
+}
+@mixin border-bottom-left-radius($radius) {
+  -webkit-border-bottom-left-radius: $radius;
+  -moz-border-bottom-left-radius: $radius;
+  -ms-border-bottom-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+.clear {
+  clear: both;
+}
