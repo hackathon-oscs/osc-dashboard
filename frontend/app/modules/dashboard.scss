@@ -17,7 +17,7 @@ body {
   }
   &>main {
     position: absolute;
-    left: $nav-width;
+    left: $nav-width * 1.05;
     top: 0;
     right: 0;
     bottom: 0;
