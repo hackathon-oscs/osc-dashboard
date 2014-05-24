@@ -1,26 +1,70 @@
-var request = require('request');
-var qs = require('querystring');
-
 var Q = require('q');
+var _ = require('underscore');
+var qs = require('querystring');
+var zlib = require('zlib');
+var fs = require('fs');
+var http = require('http');
 
 function Connection(basePath) {
-  this.get = function(path, parms) {
+  var self = this;
+
+  self.get = function(path, parms, encoding) {
     var deferred = Q.defer();
     var query = (parms)? '?'+qs.stringify(parms) : '';
-    var fullUrl = basePath + path + query;
+    var fullUrl = basePath + path + ".json" + query;
+    var buffer = [];
 
-    request.get({ url: fullUrl, json: true }, function(err, result, body) {
-      console.log('GET', result && result.statusCode, fullUrl, err);
+    function handleResponse(err, body) {
       if (err) {
         deferred.reject({ err: err });
       }
-      else if (result && result.statusCode >= 400) {
-        deferred.reject({ err: body.error, status: result.statusCode });
-      }
       else {
-        deferred.resolve(body);
+        deferred.resolve(JSON.parse(body));
       }
-    });
+    }
+
+    http.get(fullUrl, function(res) {
+      var stream = res;
+      var gunzip = zlib.createGunzip();
+      var contentEncoding = res.headers['content-encoding'];
+
+      if ((contentEncoding) && (contentEncoding.indexOf('gzip') > -1)) {
+        res.pipe(gunzip);
+        stream = gunzip;
+      }
+
+      stream.on('data', function(data) {
+        buffer.push(data.toString());
+      }).on('end', function() {
+        handleResponse(null, buffer.join(''));
+      }).on('error', handleResponse);
+    }).on('error', handleResponse);
+
+    return deferred.promise;
+  };
+
+  self.allPages = function(path, collectionKey, transformEntryWith) {
+    var deferred = Q.defer();
+    var result = [];
+
+    function nextPage(offset) {
+      return self.get(path, { offset: offset }, 'utf-8').then(function(page) {
+        var transformed = _(page[collectionKey]).map(transformEntryWith);
+        result = result.concat(transformed);
+
+        if (!!page.metadados.proximos) {
+          nextPage(offset + 500);
+        }
+        else {
+          deferred.resolve(result);
+        }
+      }).fail(function(err) {
+        deferred.reject(err);
+      });
+    }
+
+    nextPage(0);
+
     return deferred.promise;
   };
 }
