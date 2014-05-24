@@ -12,6 +12,7 @@ angular
       .state('home', {
         url: '^/',
         views: {
+          nav: { controller: 'HomeCtrl', templateUrl: 'modules/views/nav.html' },
           main: { controller: 'HomeCtrl', templateUrl: 'modules/views/home.html' }
         }
       });

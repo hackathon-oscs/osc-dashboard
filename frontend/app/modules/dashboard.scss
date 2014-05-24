@@ -1,4 +1,4 @@
-$header-height: 6rem;
+$nav-width: 15%;
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -6,10 +6,10 @@ body {
   margin: 0;
   padding: 0;
 
-  &>header {
+  &>nav {
     box-shadow: 0 0 3px 3px gray;
-    width: 100%;
-    height: $header-height;
+    width: $nav-width;
+    height: 100%;
     position: fixed;
     background: lightgray;
     z-index: 2;
@@ -17,8 +17,8 @@ body {
   }
   &>main {
     position: absolute;
-    top: $header-height;
-    left: 0;
+    left: $nav-width;
+    top: 0;
     right: 0;
     bottom: 0;
     width: auto;
