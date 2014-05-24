@@ -4,6 +4,7 @@ angular.module('templates', []);
 
 angular
   .module('od', [
+    'od.controllers.home',
     'templates',
     'ui.router'
   ])
