@@ -1,0 +1,9 @@
+node_modules
+*.swp
+vagrant_ansible_inventory_default
+.vagrant
+PENDING
+lib/config.js
+ansible/group_vars/venue.yml
+ansible/group_vars/production.yml
+

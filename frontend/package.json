@@ -1,7 +1,7 @@
 {
-  "name": "frontdesk",
+  "name": "osc-dashboard-frontend",
   "version": "0.0.1",
-  "description": "Frontdesk Single-Page Application",
+  "description": "Dashboard Single-Page Application",
   "main": "index.js",
   "dependencies": {
     "gulp": "^3.6.2"
@@ -33,12 +33,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/uems/frontdesk"
+    "url": "git://github.com/hackathon-oscs/osc-dashboard"
   },
   "author": "Felipe Mobus",
   "license": "GPLv3",
   "bugs": {
-    "url": "https://github.com/uems/frontdesk/issues"
+    "url": "https://github.com/hackathon-oscs/osc-dashboard/issues"
   },
-  "homepage": "https://github.com/uems/frontdesk"
+  "homepage": "https://github.com/hackathon-oscs/osc-dashboard"
 }
