@@ -1,4 +1,4 @@
-$nav-width: 15%;
+$nav-width: 3rem;
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -13,8 +13,42 @@ body {
     position: fixed;
     background: lightgray;
     z-index: 2;
-
+    left: 0;
+    padding: 0;
+    top: 0;
+    
+    #sidebar {
+      background-color: #16a085;
+      color: white;
+      height: 100%;
+      padding: 0;
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 50px;
+      z-index: 2;
+    }
+    #sidebar .link-text {
+      visibility: hidden;
+    }
+    #sidebar:hover .link-text {
+      visibility: visible;
+    }
+    #sidebar:hover {
+      width: 200px;
+    }
+    #sidebar a {
+      color: white;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+    #sidebar-nav {
+      text-align: left;
+      font-size: 30px;
+      margin-top: 75px;
+    }
   }
+
   &>main {
     position: absolute;
     left: $nav-width * 1.05;
