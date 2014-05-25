@@ -18,6 +18,29 @@ angular
         }
       }, $scope.estadosFiltrados);
     });
+
+    $scope.plots = [
+      {
+        coordenates: 'M200,200 L200,20 A180,180 0 0,1 377,231 z',
+        color: '#ff0000'
+      },
+      {
+        coordenates: 'M200,200 L377,231 A180,180 0 0,1 138,369 z',
+        color: '#00ff00'
+      },
+      {
+        coordenates: 'M200,200 L138,369 A180,180 0 0,1 20,194 z',
+        color: '#0000ff'
+      },
+      {
+        coordenates: 'M200,200 L20,194 A180,180 0 0,1 75,71 z',
+        color: '#ff00ff'
+      },
+      {
+        coordenates: 'M200,200 L75,71 A180,180 0 0,1 200,20 z',
+        color: '#ffff00'
+      }
+    ]
   })
   .config(function($stateProvider) {
     $stateProvider
