@@ -8,3 +8,4 @@ PENDING
 frontend/app/config.js
 npm-debug.log
 gateway/output
+*.db
