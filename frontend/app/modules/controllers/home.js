@@ -13,14 +13,14 @@ angular
 
     $scope.$watch('regiao', function() {
       $scope.estadosFiltrados = [];
-      angular.forEach($scope.estados, function(val, key) {
-        if(val.regiao == $scope.regiao) {
+      angular.forEach($scope.estados, function(val) {
+        if(val.regiao === $scope.regiao) {
           this.push(val);
         }
       }, $scope.estadosFiltrados);
     });
 
-    $scope.graph = {}
+    $scope.graph = {};
     $scope.graph.size = 400;
     $scope.graph.dimension = ($scope.graph.size / 2);
 
@@ -45,7 +45,7 @@ angular
           coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L75,71 A180,180 0 0,1 200,20 z',
           color: '#ffff00'
         }
-      ]
+    ];
   })
   .config(function($stateProvider) {
     $stateProvider
