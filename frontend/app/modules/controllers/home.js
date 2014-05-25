@@ -9,6 +9,15 @@ angular
   .controller('HomeCtrl', function($scope, Estados, Regioes) {
     $scope.regioes = Regioes.query();
     $scope.estados = Estados.query();
+
+    $scope.$watch('regiao', function() {
+      $scope.estadosFiltrados = [];
+      angular.forEach($scope.estados, function(val, key) {
+        if(val.regiao == $scope.regiao) {
+          this.push(val);
+        }
+      }, $scope.estadosFiltrados);
+    });
   })
   .config(function($stateProvider) {
     $stateProvider

@@ -3,11 +3,20 @@
   <div id="sidebar-nav">
    <ul class="nav nav-stacked">
       <li><a><span class="link-text">Regi&atilde;o</span></a></li>
+        <select ui-select2 class="link-text" ng-model="regiao" >
+          <option value='' selected>-- Selecione uma regi&atilde;o --</option>
+          <option ng-repeat='regiao in regioes' value="{{ regiao.sigla }}">{{regiao.nome}}</option>
+        </select>
+        <select ui-select2 class="link-text" ng-model="estado" >
+          <option value='' selected>-- Selecione um estado --</option>
+          <option ng-repeat='estado in estadosFiltrados' value='{{estado.sigla}}'>{{estado.nome}}</option>
+        </select>
       <li><a><span class="link-text">Natureza Jur&iacute;dica</span></a></li>
       <li><a><span class="link-text">Ano de Exerc&iacute;cio</span></a></li>
       <li><a><span class="link-text">Concedente</span></a></li>
       <li><a><span class="link-text">Valor</span></a></li>
       <li><a><span class="link-text">Atua&ccedil;&atilde;o</span></a></li>
+      <li><a href='http://oscs.meteor.com'><span class="link-text"><button type='button'>Meteor</button></span></a></li>
     </ul>
   </div> <!-- Sidebar End -->
 </div>
