@@ -7,3 +7,4 @@ frontend/app/bower_components
 PENDING
 frontend/app/config.js
 npm-debug.log
+gateway/output

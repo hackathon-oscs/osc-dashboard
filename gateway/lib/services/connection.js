@@ -2,7 +2,6 @@ var Q = require('q');
 var _ = require('underscore');
 var qs = require('querystring');
 var zlib = require('zlib');
-var fs = require('fs');
 var http = require('http');
 
 function Connection(basePath) {
@@ -23,6 +22,7 @@ function Connection(basePath) {
       }
     }
 
+    console.log('about to hit', fullUrl);
     http.get(fullUrl, function(res) {
       var stream = res;
       var gunzip = zlib.createGunzip();
@@ -43,7 +43,7 @@ function Connection(basePath) {
     return deferred.promise;
   };
 
-  self.allPages = function(path, collectionKey, transformEntryWith) {
+  self.allPages = function(path, collectionKey, makeHeaderWith, transformEntryWith) {
     var deferred = Q.defer();
     var result = [];
 
@@ -56,7 +56,8 @@ function Connection(basePath) {
           nextPage(offset + 500);
         }
         else {
-          deferred.resolve(result);
+          var header = makeHeaderWith(page[collectionKey][0]);
+          deferred.resolve([header, result]);
         }
       }).fail(function(err) {
         deferred.reject(err);
