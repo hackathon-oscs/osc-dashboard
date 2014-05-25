@@ -36,7 +36,10 @@ function sqlInsertFor(table) {
     var pairs = [];
 
     _(entry).each(function(value, key) {
-      if (_(value).isObject()) {
+      if (key === 'uf') {
+        value = value.sigla;
+      }
+      else if (_(value).isObject()) {
         key   = key + '_id';
         value = _(value).values()[0].id || null;
       }
@@ -57,7 +60,10 @@ function sqlCreateFor(table) {
     var type = '';
     var columns = [];
     _(entry).each(function(value, key) {
-      if (_(value).isObject()) {
+      if (key === 'uf') {
+        type = 'text';
+      }
+      else if (_(value).isObject()) {
         key   = key + '_id';
         type  = 'int';
       }

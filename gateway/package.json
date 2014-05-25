@@ -37,6 +37,8 @@
     "body-parser": "^1.0.2",
     "gulp": "^3.6.2",
     "zlib": "^1.0.5",
-    "bindings": "^1.2.0"
+    "bindings": "^1.2.0",
+    "sqlite3-as-promised": "0.1.0-3",
+    "sqlite3": "^2.2.3"
   }
 }

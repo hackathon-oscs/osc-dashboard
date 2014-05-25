@@ -10,4 +10,7 @@ angular
   })
   .service('Estados', function($resource, GatewayHost) {
     return $resource(GatewayHost + '/estados');
+  })
+  .service('NaturezasJuridicas', function($resource, GatewayHost) {
+    return $resource(GatewayHost + '/naturezas_juridicas');
   });

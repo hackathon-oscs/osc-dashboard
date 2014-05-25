@@ -46,9 +46,14 @@ function Connection(basePath) {
   self.allPages = function(path, collectionKey, makeHeaderWith, transformEntryWith) {
     var deferred = Q.defer();
     var result = [];
+    var header = {};
 
     function nextPage(offset) {
       return self.get(path, { offset: offset }, 'utf-8').then(function(page) {
+        if (offset === 0) {
+          header = makeHeaderWith(page[collectionKey][0]);
+        }
+
         var transformed = _(page[collectionKey]).map(transformEntryWith);
         result = result.concat(transformed);
 
@@ -56,7 +61,6 @@ function Connection(basePath) {
           nextPage(offset + 500);
         }
         else {
-          var header = makeHeaderWith(page[collectionKey][0]);
           deferred.resolve([header, result]);
         }
       }).fail(function(err) {
