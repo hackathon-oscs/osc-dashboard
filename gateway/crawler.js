@@ -11,20 +11,23 @@ function sqlInsertFor(table) {
   function re(pattern) { return function(v) { return (new RegExp(pattern)).test(v); }; }
   function isNull(v)   { return v === null; }
   function always(c)   { return function(v) { return c; }; }
-  function quote(v)    { return '"'+ v +'"'; }
+  function quote(v)    { return '"'+ v.replace(/['"]/g,'') +'"'; }
   function identity(v) { return v; }
 
   var quoteMap = [
     { check: isNull,                      quote: always('null') },
     { check: re(/^\d\d\d\d-\d\d-\d\d$/),  quote: quote          },
     { check: re(/^[0-9A-F]{40}$/),        quote: quote          },
-    { check: parseFloat,                  quote: identity       },
+    { check: re(/^-\d.*$/),               quote: identity       },
+    { check: re(/[ \-\.\/]/),             quote: quote          },
+    { check: parseFloat,                  quote: parseFloat      },
   ];
   function smartQuote(value) {
     for (var i = 0; i < quoteMap.length; i++) {
-      var check   = quoteMap[i].check.bind({}, value)();
-      var attempt = quoteMap[i].quote(value);
-      if (check) { return attempt; }
+      var check = quoteMap[i].check.bind({}, value)();
+      if (check) {
+        return quoteMap[i].quote(value);
+      }
     }
     return quote(value);
   }
@@ -35,9 +38,9 @@ function sqlInsertFor(table) {
     _(entry).each(function(value, key) {
       if (_(value).isObject()) {
         key   = key + '_id';
-        value = _(value).values()[0].id;
+        value = _(value).values()[0].id || null;
       }
-      pairs.push([key, value]);
+      return pairs.push([key, value]);
     });
 
     var columns = _.chain(pairs).pluck(0).value();
@@ -51,17 +54,15 @@ function sqlInsertFor(table) {
 
 function sqlCreateFor(table) {
   return function(entry) {
+    var type = '';
     var columns = [];
     _(entry).each(function(value, key) {
       if (_(value).isObject()) {
         key   = key + '_id';
         type  = 'int';
       }
-      else if (_(value).isNumber()) {
-        type  = 'num';
-      }
-      else {
-        type  = 'text';
+      else if (key === 'id') {
+        type = 'int';
       }
       columns.push(key + ' ' + type);
     });
@@ -79,4 +80,5 @@ function handleError(e) {
 var p = connection.allPages('/' + endpoint, endpoint, sqlCreateFor(endpoint), sqlInsertFor(endpoint)).spread(function(header, result) {
   var content = header + "\n" + result.join('\n');
   fs.writeFileSync('output/'+endpoint+'.sql', content);
-}).fail(handleError).done(handleError);
+  console.log('output written to output/'+endpoint+'.sql');
+}).fail(handleError).done(null, handleError);
