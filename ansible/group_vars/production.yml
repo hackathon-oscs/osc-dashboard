@@ -1,0 +1,2 @@
+app_path: /var/www/osc-dashboard
+gateway_host: http://localhost:1201

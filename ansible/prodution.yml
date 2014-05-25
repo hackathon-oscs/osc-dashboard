@@ -1,0 +1,15 @@
+---
+
+- hosts: production
+  tasks:
+
+  - name: install apache
+    apt: pkg=apache2
+
+  - name: copies files in dist to production dir
+    synchronize: src=../dist/
+                 dest=/var/www/
+
+  - name: configure the gateway host
+    template: src=config.js.j2
+              dest=/var/www/config.js

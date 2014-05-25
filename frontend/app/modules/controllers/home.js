@@ -22,30 +22,32 @@ angular
 
     $scope.graph = {};
     $scope.graph.size = 400;
-    $scope.graph.dimension = ($scope.graph.size / 2);
+    $scope.graph.data = [30, 20, 10, 40];
 
-    $scope.graph.plots = [
-        {
-          coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L200,20 A180,180 0 0,1 377,231 z',
-          color: '#ff0000'
-        },
-        {
-          coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L377,231 A180,180 0 0,1 138,369 z',
-          color: '#00ff00'
-        },
-        {
-          coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L138,369 A180,180 0 0,1 20,194 z',
-          color: '#0000ff'
-        },
-        {
-          coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L20,194 A180,180 0 0,1 75,71 z',
-          color: '#ff00ff'
-        },
-        {
-          coordenates: 'M'+ $scope.graph.dimension + ',' + $scope.graph.dimension + ' L75,71 A180,180 0 0,1 200,20 z',
-          color: '#ffff00'
-        }
-    ];
+
+    $scope.plotData = function () {
+      var canvas;
+      var context;
+      var lastend = 0;
+      var totalData = _.reduce($scope.graph.data, function(total, current){ return total + current; }, 0)
+      var myColor = ["#ECD078","#D95B43","#C02942","#542437","#53777A"];
+
+      canvas = document.getElementById("canvas");
+      context = canvas.getContext("2d");
+      context.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (var i in $scope.graph.data) {
+        context.fillStyle = myColor[i];
+        context.beginPath();
+        context.moveTo(200,150);
+        context.arc(200,150,150,lastend,lastend+
+          (Math.PI*2*($scope.graph.data[i]/totalData)),false);
+        context.lineTo(200,150);
+        context.fill();
+        lastend += Math.PI*2*($scope.graph.data[i]/totalData);
+      }
+    };
+
   })
   .config(function($stateProvider) {
     $stateProvider

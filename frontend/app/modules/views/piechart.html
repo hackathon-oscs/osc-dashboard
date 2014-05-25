@@ -1,7 +1,1 @@
-<svg ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}'
-  xmlns='http://www.w3.org/2000/svg' class='ng-binding'>
-  <!-- Pie chart sample -->
-  <path ng-repeat='plot in graph.plots' ng-attr-d='{{plot.coordenates}}'
-    style='fill: {{plot.color}};
-      fill-opacity: 1;'/>
-</svg>
+<canvas id="canvas" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData()}}"></canvas>
