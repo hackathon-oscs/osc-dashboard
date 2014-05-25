@@ -3,9 +3,12 @@
 angular
   .module('od.controllers.home', [
     'od',
+    'od.services.constants',
     'ui.router'
   ])
-  .controller('HomeCtrl', function() {
+  .controller('HomeCtrl', function($scope, Estados, Regioes) {
+    $scope.regioes = Regioes.query();
+    $scope.estados = Estados.query();
   })
   .config(function($stateProvider) {
     $stateProvider
