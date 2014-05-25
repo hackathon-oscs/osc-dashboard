@@ -7,7 +7,7 @@ var db = new sqlite3.Database('xunga.db');
 var promisedRoute = require('../promised_route');
 
 function justCount(results) {
-  return results[0]['counts(1)'];
+  return { result: results[0]['count(1)'] };
 }
 module.exports = function(app) {
   app.get('/municipios/:uf', promisedRoute(function(req, res) {
