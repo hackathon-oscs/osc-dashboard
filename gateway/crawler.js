@@ -11,7 +11,7 @@ function sqlInsertFor(table) {
   function re(pattern) { return function(v) { return (new RegExp(pattern)).test(v); }; }
   function isNull(v)   { return v === null; }
   function always(c)   { return function(v) { return c; }; }
-  function quote(v)    { return '"'+ v.replace(/['"]/g,'') +'"'; }
+  function quote(v)    { return '"'+ String(v).replace(/['"]/g,'') +'"'; }
   function identity(v) { return v; }
 
   var quoteMap = [
