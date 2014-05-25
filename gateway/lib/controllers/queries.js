@@ -21,6 +21,9 @@ module.exports = function(app) {
 
     return deferred.promise;
   }));
+  app.get('/naturezas_juridicas', promisedRoute(function(req, res) {
+    return sap.all(db, 'select * from naturezas_juridicas where id > 0');
+  }));
   app.get('/convenios', promisedRoute(function(req, res) {
     return sap.all(db, 'select count(1) from convenios');
   }));

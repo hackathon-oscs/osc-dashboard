@@ -59,7 +59,7 @@ body {
     }
 
     #sidebar:hover {
-      width: 17rem;
+      width: 32rem;
     }
 
     #sidebar a {
@@ -76,9 +76,9 @@ body {
   }
 
   &>main {
-    position: absolute;
-    left: $nav-width * 1.05;
-    top: 0;
+    position: relative;
+    left: 33rem;
+    top: 100px;
     right: 0;
     bottom: 0;
     width: auto;

@@ -12,6 +12,10 @@
           <option ng-repeat='estado in estadosFiltrados' value='{{estado.sigla}}'>{{estado.nome}}</option>
         </select>
       <li><a><span class="link-text">Natureza Jur&iacute;dica</span></a></li>
+        <select ui-select2 class='link-text' ng-model='natureza'>
+          <option value=''>-- Selecione uma natureza jur&iacute;dica --</option>
+          <option ng-repeat='natureza in naturezas' value='{{natureza.id}}'>{{natureza.nome}}</option>
+        </select>
       <li><a><span class="link-text">Ano de Exerc&iacute;cio</span></a></li>
       <li><a><span class="link-text">Concedente</span></a></li>
       <li><a><span class="link-text">Valor</span></a></li>

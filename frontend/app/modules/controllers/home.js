@@ -6,9 +6,10 @@ angular
     'od.services.constants',
     'ui.router'
   ])
-  .controller('HomeCtrl', function($scope, Estados, Regioes) {
+  .controller('HomeCtrl', function($scope, Estados, Regioes, NaturezasJuridicas) {
     $scope.regioes = Regioes.query();
     $scope.estados = Estados.query();
+    $scope.naturezas = NaturezasJuridicas.query();
 
     $scope.$watch('regiao', function() {
       $scope.estadosFiltrados = [];
