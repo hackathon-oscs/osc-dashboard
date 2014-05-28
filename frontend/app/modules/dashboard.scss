@@ -37,7 +37,7 @@ body {
     ul {
       list-style-type: none;
     }
-    
+
     #sidebar {
       background-color: #16a085;
       color: white;
@@ -59,7 +59,7 @@ body {
     }
 
     #sidebar:hover {
-      width: 32rem;
+      width: 30%;
     }
 
     #sidebar a {
@@ -82,6 +82,10 @@ body {
     right: 0;
     bottom: 0;
     width: auto;
+
+    canvas {
+      display: block;
+    }
   }
 
   &>'alerts@home' {

@@ -25,14 +25,14 @@ angular
     $scope.graph.data = [30, 20, 10, 40];
 
 
-    $scope.plotData = function () {
+    $scope.plotData = function (selector) {
       var canvas;
       var context;
       var lastend = 0;
       var totalData = _.reduce($scope.graph.data, function(total, current){ return total + current; }, 0)
       var myColor = ["#ECD078","#D95B43","#C02942","#542437","#53777A"];
 
-      canvas = document.getElementById("canvas");
+      canvas = document.querySelector(selector);
       context = canvas.getContext("2d");
       context.clearRect(0, 0, canvas.width, canvas.height);
 

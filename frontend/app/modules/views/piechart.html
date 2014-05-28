@@ -1,1 +1,5 @@
-<canvas id="canvas" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData()}}"></canvas>
+<h1>Somatório de Propostas</h1>
+<canvas id="first" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#first')}}"></canvas>
+
+<h1>Somatório de Empenho</h1>
+<canvas id="second" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#second')}}"></canvas>
