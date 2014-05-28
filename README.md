@@ -1,4 +1,4 @@
-**OSC Dashboard **
+OSC Dashboard
 -----
 
 Desenvolvido durante o Hackathon das OSCs -  Maratona Hacker das Ogranizações da Sociedade Civil - de 21 a 25 de maio de 2014 - Brasilia - Brasil
