@@ -6,6 +6,7 @@ Desenvolvido durante o Hackathon das OSCs -  Maratona Hacker das Ogranizações 
 Acesse o fonte em: https://github.com/hackathon-oscs/osc-dashboard
 Acesse o alpha em:  http://hemingway.softwarelivre.org:8028/
 
+![logo](https://dl.dropboxusercontent.com/u/28840639/logo.png)
 
 Sobre o Projeto:
 
@@ -39,13 +40,13 @@ Temporal: link para hospedagem em meteor - http://oscs.meteor.com/
 Função de visualização das relações entre entes da base através de relação gráfica animada.
 
 Tecnologias utilizadas:
-Análise do BD / Api (Conexão com API Siconv)
-Infra local para desenvolvimento e BD ( Node.js SQLITE)
-Layout para Dashboard ( Angular e D3)
-Identidade Visual ( Inkscape )
-Front End  (Html5 css3)
-Visualização artistica - Temporal - Meteor 
-Repositório  e controle de versões (GIT & Github)
+- Análise do BD / Api (Conexão com API Siconv)
+- Infra local para desenvolvimento e BD ( Node.js SQLITE)
+- Layout para Dashboard ( Angular e D3)
+- Identidade Visual ( Inkscape )
+- Front End  (Html5 css3)
+- Visualização artistica - Temporal - Meteor 
+- Repositório  e controle de versões (GIT & Github)
 
 Autores:
 Bernardo Pansera, Carlos Ferreira, Felipe Mobus,  Filipe Brandão, Laureane Sousa, Renato Fabbri, Rodrigo Troian, Rosangela Rocha, Tania Silva, Wellington Jonathan
