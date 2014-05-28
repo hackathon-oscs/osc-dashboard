@@ -21,7 +21,7 @@ angular
     });
 
     $scope.graph = {};
-    $scope.graph.size = 400;
+    $scope.graph.size = 200;
     $scope.graph.data = [30, 20, 10, 40];
 
 
@@ -39,10 +39,10 @@ angular
       for (var i in $scope.graph.data) {
         context.fillStyle = myColor[i];
         context.beginPath();
-        context.moveTo(200,150);
-        context.arc(200,150,150,lastend,lastend+
+        context.moveTo(100,75);
+        context.arc(100,75,75,lastend,lastend+
           (Math.PI*2*($scope.graph.data[i]/totalData)),false);
-        context.lineTo(200,150);
+        context.lineTo(100,75);
         context.fill();
         lastend += Math.PI*2*($scope.graph.data[i]/totalData);
       }

@@ -1,5 +1,14 @@
-<h1>Somatório de Propostas</h1>
-<canvas id="first" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#first')}}"></canvas>
+<div>
+  <strong>Convênios</strong>
+  <canvas id="first" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#first')}}"></canvas>
+</div>
 
-<h1>Somatório de Empenho</h1>
-<canvas id="second" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#second')}}"></canvas>
+<div>
+  <strong>Valor total de convênios</strong>
+  <canvas id="second" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#second')}}"></canvas>
+</div>
+
+<div>
+  <strong>TOP 10</strong>
+  <canvas id="third" ng-attr-width='{{graph.size}}' ng-attr-height='{{graph.size}}' ng-onload="{{plotData('canvas#third')}}"></canvas>
+</div>
