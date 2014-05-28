@@ -25,6 +25,7 @@ Visualização gráfica artistica das relações entre as organizações;
 
 Funcionalidades previstas:
 Menu para seleção de ano de analise e filtros;
+
 Dash 1: Gráficos Pizza
 1.1  Convênios - relação de propostas efetuadas e convênios executados;
 1.2  Valor total de convênios previstos e total de convênios executados;
