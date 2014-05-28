@@ -9,7 +9,7 @@ Acesse o alpha em:  http://hemingway.softwarelivre.org:8028/
 
 Sobre o Projeto:
 
-De acordo com o proposto pela organização do Hackathon, o presente projeto tem como objetivo utilizar a API de conexão a base de dados SICONV (Sistema de Convenios FIXME) [1] disponibilizada pelo portal de transparência governamental[2].  O ponto chave do projeto é  a transparência do repasse de verbas às OSCs, onde qualquer cidadão poderá ter acesso a informações , principalmente as esferas públicos e as  Organizações da Sociedade Civil.
+De acordo com o proposto pela organização do Hackathon, o presente projeto tem como objetivo utilizar a API de conexão a base de dados SICONV (Sistema de Convenios ) [1] disponibilizada pelo portal de transparência governamental[2].  O ponto chave do projeto é  a transparência do repasse de verbas às OSCs, onde qualquer cidadão poderá ter acesso a informações , principalmente as esferas públicos e as  Organizações da Sociedade Civil.
 
 [1][https://www.convenios.gov.br/portal/}
 [2][http://api.convenios.gov.br/siconv/doc/]
