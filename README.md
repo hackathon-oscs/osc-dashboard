@@ -49,6 +49,7 @@ Repositório  e controle de versões (GIT & Github)
 
 Autores:
 Bernardo Pansera, Carlos Ferreira, Felipe Mobus,  Filipe Brandão, Laureane Sousa, Renato Fabbri, Rodrigo Troian, Rosangela Rocha, Tania Silva, Wellington Jonathan
+
 Tutor: Deivi Kuhn
 
 
